@@ -1,22 +1,23 @@
+import { Navigate, Route, Routes } from 'react-router-dom'
 import './styles/site.css'
 import { useRevealOnScroll } from './hooks/useRevealOnScroll'
-import { HeroSection } from './sections/HeroSection'
-import { SiteFooter } from './sections/SiteFooter'
-import { SiteHeader } from './sections/SiteHeader'
-import { WorkbenchSection } from './sections/WorkbenchSection'
+import { AppLayout } from './components/AppLayout'
+import { HomePage } from './pages/HomePage'
+import { ResultsPage } from './pages/ResultsPage'
+import { UploadPage } from './pages/UploadPage'
 
 function App() {
   useRevealOnScroll()
 
   return (
-    <div className="page-shell">
-      <SiteHeader />
-      <main>
-        <HeroSection />
-        <WorkbenchSection />
-      </main>
-      <SiteFooter />
-    </div>
+    <Routes>
+      <Route element={<AppLayout />}>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/upload" element={<UploadPage />} />
+        <Route path="/results/:fileId" element={<ResultsPage />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Route>
+    </Routes>
   )
 }
 

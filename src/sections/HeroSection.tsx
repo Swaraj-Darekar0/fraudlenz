@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { trustedBy } from '../data/siteContent'
 
 export function HeroSection() {
@@ -5,6 +6,7 @@ export function HeroSection() {
     <section className="hero" id="hero">
       <div className="hero__background" aria-hidden="true" />
       <div className="hero__vignette" aria-hidden="true" />
+      <div className="hero__focus" aria-hidden="true" />
       <div className="hero__glow" aria-hidden="true" />
 
       <div
@@ -15,21 +17,21 @@ export function HeroSection() {
         <p className="eyebrow eyebrow--dark">FRAUDLENS</p>
         <h1>Clean the dataset before you trust the verdict.</h1>
         <p className="hero__subhead">
-          Upload raw transactions. Surface quality issues. Download the cleaned CSV.
+          A separate landing page, upload flow, and investigation workspace.
         </p>
         <p className="hero__body">
-          FraudLens now exposes the cleaning pipeline directly: row counts, parsed
-          columns, timestamp range, quality metrics, preview records, and a live
-          download endpoint for the normalized output.
+          FraudLens turns messy financial telemetry into an investigation-ready
+          product journey. Start here, move into upload, then continue into a
+          dedicated results environment built for deeper fraud analysis.
         </p>
 
         <div className="hero__actions">
-          <a href="#upload" className="button button--dark">
-            Upload CSV ↗
-          </a>
-          <a href="#results" className="text-link">
-            See the response model ↓
-          </a>
+          <Link to="/upload" className="button button--dark">
+            Open upload page ↗
+          </Link>
+          <Link to="/results/demo" className="text-link">
+            See the results workspace ↓
+          </Link>
         </div>
       </div>
 
